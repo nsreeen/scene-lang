@@ -1,3 +1,46 @@
 body {
     background-size: 100%;
 }
+
+.middle-middle {
+    margin: auto;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 0;
+}
+
+.top-right {
+    position: absolute;
+    top: 20;
+    right: 0;
+}
+
+.top-left {
+    position: absolute;
+    top: 20;
+    left: 0;
+}
+
+/* canvas {
+   margin-top: 10%;
+   height: 500px;
+   width: 1000px;
+} */
+
+#top-section {
+  display: block;
+}

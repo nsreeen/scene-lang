@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Scene Lang</title>
@@ -7,8 +7,11 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+<div id="top-section">
 <input id="input" >Enter your instructions here!</input>
 <input type="submit" value="submit" onclick="return foo();" />
+</div>
+<div id="canvas"></div>
 
 
 <script>
@@ -28,10 +31,30 @@
   }
 
   function put(item, vertical, horizontal) {
+    // const canvas = document.getElementById('canvas');
+    // const ctx = canvas.getContext('2d');
+    // const image = new Image(100,100);
+    // image.onload = drawImageActualSize;
+    //
+    // image.src = 'pics/horse.png';
+    //
+    // function drawImageActualSize() {
+    //   //ctx.drawImage(this, 0, 0);
+    //   ctx.drawImage(this, 0, 0, this.width, this.height);
+    // }
+
     var img = document.createElement("img");
     img.src = `pics/${item}.png`;
-    img.style=`vertical-align:${vertical}`;
-    document.body.appendChild(img);
+    if (vertical == "top" && horizontal == "right") {
+      img.className = "top-right"
+    } else if (vertical == "top" && horizontal == "left") {
+      img.className = "top-left"
+    } else if (vertical == "bottom" && horizontal == "right") {
+      img.className = "bottom-right"
+    } else if (vertical == "bottom" && horizontal == "left") {
+      img.className = "bottom-left"
+    }
+    document.getElementById("canvas").appendChild(img);
 }
 </script>
 </body>
