@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<title>Scene Lang</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="">
-<style>
-</style>
-
+<html lang="en">  
+<head>
+  <meta charset="UTF-8">
+  <title>Scene Lang</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+</head>
 <body>
 <input id="input" >Enter your instructions here!</input>
 <input type="submit" value="submit" onclick="return foo();" />
@@ -14,18 +13,26 @@
 
 <script>
   function foo() {
-    alert(document.getElementById("input").value);
     const tokens = document.getElementById("input").value.split(" ");
     console.log(tokens);
     if (tokens[0] == "set" && tokens[1] == "background") {
       set(tokens[2]);
     }
+    else if (tokens[0] == "put"){
+      put(tokens[1], tokens[2], tokens[3]);
+    }
   }
 
   function set(background) {
-    //document.`pics/${background}.jpeg`
+    document.body.style.backgroundImage = `url(pics/${background}.jpeg)`
   }
 
+  function put(item, vertical, horizontal) {
+    var img = document.createElement("img");
+    img.src = `pics/${item}.png`;
+    img.style=`vertical-align:${vertical}`;
+    document.body.appendChild(img);
+}
 </script>
 </body>
 
